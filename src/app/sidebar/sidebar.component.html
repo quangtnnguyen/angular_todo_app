@@ -1,0 +1,12 @@
+<ul class="sidebar-items">
+  <li class="w-100">
+    <div
+      class="sidebar-item"
+      [class.active]="menu === selectedMenu"
+      (click)="onSelect(menu)"
+      *ngFor="let menu of SIDEBAR_MENUS"
+    >
+      {{ menu }}
+    </div>
+  </li>
+</ul>

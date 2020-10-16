@@ -1,0 +1,7 @@
+<div class="col-11">
+  <app-todo-item
+    *ngFor="let item of todos; last as last"
+    [ngClass]="{ 'last-child': last }"
+    [item]="item"
+  ></app-todo-item>
+</div>

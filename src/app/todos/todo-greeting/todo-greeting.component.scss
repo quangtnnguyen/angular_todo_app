@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "Montserrat SemiBold";
+  src: url("../../../assets/fonts/Montserrat-SemiBold.ttf");
+}
+
+$semibold-font-family: "Montserrat SemiBold";
+
+.greeting-container {
+  font-family: $semibold-font-family;
+  background-color: white;
+  font-size: 1.25rem;
+  font-weight: bolder;
+  border-radius: 16px;
+  padding: 3px 12px;
+}
