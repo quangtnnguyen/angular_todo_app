@@ -1,6 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/scss/bootstrap.scss";
 
+@font-face {
+  font-family: "Montserrat ExtraBold";
+  src: url("assets/fonts/Montserrat-ExtraBold.ttf");
+}
+@font-face {
+  font-family: "Montserrat Medium";
+  src: url("assets/fonts/Montserrat-Medium.ttf");
+}
+@font-face {
+  font-family: "Montserrat ExtraBold";
+  src: url("assets/fonts/Montserrat-Regular.ttf");
+}
+
+$extrabold-font-family: "Montserrat ExtraBold";
+$medium-font-family: "Montserrat Medium";
+$regular-font-family: "Montserrat Regular";
+
+$active-text-color: #0080ff;
+$active-text-bg: #f1f1f1;
+
 .row {
   margin: 0;
 }
@@ -8,4 +28,94 @@
 .col,
 [class*="col-"] {
   padding: 0;
+}
+
+.last-child {
+  margin-bottom: 0 !important;
+}
+
+@include media-breakpoint-down(xl) {
+  .sidebar-item {
+    font-size: 1.75rem !important;
+  }
+
+  .greeting-container {
+    font-size: 1.5rem !important;
+  }
+
+  .create-form-container {
+    input,
+    button {
+      font-size: 1.15rem !important;
+    }
+
+    div {
+      font-size: 1rem !important;
+    }
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .sidebar-item {
+    font-size: 1.5rem !important;
+  }
+
+  .greeting-container {
+    font-size: 1.25rem !important;
+  }
+
+  .create-form-container {
+    input,
+    button {
+      font-size: 1rem !important;
+    }
+
+    div {
+      font-size: 0.95rem !important;
+    }
+  }
+
+  .item-container {
+    font-size: 0.9rem;
+
+    button {
+      font-size: 0.85rem !important;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .sidebar-item {
+    font-size: 1.25rem !important;
+  }
+
+  .greeting-container {
+    font-size: 1rem !important;
+  }
+
+  .create-form-container {
+    input,
+    button,
+    div {
+      font-size: 0.9rem !important;
+    }
+  }
+
+  .item-container {
+    font-size: 0.85rem;
+
+    button {
+      font-size: 0.8rem !important;
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .item-container {
+    font-size: 0.7rem;
+
+    button {
+      font-size: 0.55rem !important;
+    }
+  }
 }

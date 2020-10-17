@@ -1,41 +1,12 @@
-@font-face {
-  font-family: "Montserrat ExtraBold";
-  src: url("../assets/fonts/Montserrat-ExtraBold.ttf");
-}
-$extrabold-font-family: "Montserrat ExtraBold";
-$active-text-color: #0080ff;
-$active-text-bg: #f1f1f1;
-
 #page {
   display: flex;
   height: 100vh;
   width: 100vw;
 
   .sidebar-container {
-    font-family: $extrabold-font-family;
+    font-weight: bold;
     background-color: white;
     align-items: center;
-
-    .sidebar-items {
-      width: 100%;
-      padding: 0 0 0 0;
-      list-style: none;
-      position: relative;
-
-      .active {
-        color: $active-text-color;
-        background-color: $active-text-bg;
-      }
-
-      .sidebar-item {
-        display: flex;
-        align-items: center;
-        height: 2em;
-        font-size: 1.65vw;
-        padding: 0 1em;
-        margin-bottom: 1.25em;
-      }
-    }
   }
 
   .content-container {
@@ -43,3 +14,4 @@ $active-text-bg: #f1f1f1;
     background-size: cover;
   }
 }
+

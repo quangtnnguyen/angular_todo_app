@@ -3,16 +3,13 @@ div {
   min-height: 5vh;
   max-height: 65vh;
   background-color: white;
-  padding: 1em;
+  padding: 1em 1em 0 1em;
   border-radius: 12px;
   box-sizing: content-box;
   overflow: auto;
   scroll-behavior: smooth;
 }
 
-.last-child {
-  margin-bottom: 0 !important;
-}
 /* Scrollbar styles */
 ::-webkit-scrollbar {
   width: 12px;

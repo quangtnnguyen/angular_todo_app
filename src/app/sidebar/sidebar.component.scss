@@ -1,0 +1,21 @@
+@import "../../styles.scss";
+
+.sidebar-items {
+  width: 100%;
+  padding: 0 0 0 0;
+  list-style: none;
+  position: relative;
+
+  .active {
+    color: $active-text-color;
+    background-color: $active-text-bg;
+  }
+
+  .sidebar-item {
+    display: flex;
+    align-items: center;
+    height: 2em;
+    padding: 0 1em;
+    margin-bottom: 1.25em;
+  }
+}
