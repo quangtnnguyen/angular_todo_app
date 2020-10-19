@@ -1,16 +1,32 @@
 <div class="row h-100 w-100">
   <div class="d-flex col-md-6 align-items-end offset-1 my-auto">
-    <app-todo-greeting></app-todo-greeting>
+    <app-todo-greeting>
+
+    </app-todo-greeting>
   </div>
 
   <div class="col-md-12 h-80">
     <div class="h-100">
       <div class="d-flex flex-column">
-        <app-todo-create-form
-          class="create-form-container offset-1"
-          style="height: 10%"
-        ></app-todo-create-form>
-        <app-todo-list class="col-10 col-md-10 offset-1"></app-todo-list>
+        <!--Input-->
+        <div class="create-form-container d-flex flex-row offset-1 h-10">
+          <div class="col-8 col-md-9 col-lg-5">
+            <input #txbContent maxlength="250"
+              (keyup.enter)="addTodo(txbContent.value); txbContent.value = ''" type="text"
+              placeholder="What'd you do for love...?" class="form-control" />
+          </div>
+
+          <div class="col-1 offset-1 pl-2">
+            <button (click)="addTodo(txbContent.value); txbContent.value = ''" class="btn btn-info">
+              <i class="fa fa-arrow-up"></i>
+            </button>
+          </div>
+
+        </div>
+        <!--Todo list-->
+        <div class="todos col-10 col-md-10 offset-1">
+          <app-todo-item *ngFor="let item of todos" [item]="item"></app-todo-item>
+        </div>
       </div>
     </div>
   </div>

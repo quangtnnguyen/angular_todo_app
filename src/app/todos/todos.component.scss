@@ -1,7 +1,62 @@
+@import '../../styles.scss';
+
+button {
+  font-family: $regular-font-family;
+}
+
+
+.h-10 {
+  height: 10% !important;
+}
+
 .h-20 {
   height: 20% !important;
 }
 
 .h-80 {
   height: 80% !important;
+}
+
+.create-form-container {
+  input {
+    font-family: $medium-font-family;
+  }
+
+  .invalid-feedback {
+    font-family: $medium-font-family;
+    font-weight: normal;
+  }
+}
+
+.todos {
+  margin-top: 1em;
+  min-height: 5vh;
+  max-height: 65vh;
+  background-color: white;
+  padding: 1em 1em 0 1em;
+  border-radius: 12px;
+  box-sizing: content-box;
+  overflow: auto;
+  scroll-behavior: smooth;
+}
+
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #ccc;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #999;
 }

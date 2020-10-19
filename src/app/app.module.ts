@@ -11,4 +11,4 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [BrowserModule, AppRoutingModule, TodosModule, NgbModule],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

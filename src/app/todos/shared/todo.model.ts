@@ -1,7 +1,5 @@
-import { Guid } from 'guid-typescript';
-
 export class Todo {
-  id: Guid;
+  id: number;
   content: string;
   status: string;
 }
