@@ -7,21 +7,26 @@
 
   <div class="col-md-12 h-80">
     <div class="h-100">
-      <div class="d-flex flex-column">
+      <div class class="d-flex flex-column">
         <!--Input-->
         <div class="create-form-container d-flex flex-row offset-1 h-10">
-          <div class="col-8 col-md-9 col-lg-5">
-            <input #txbContent maxlength="250"
-              (keyup.enter)="addTodo(txbContent.value); txbContent.value = ''" type="text"
-              placeholder="What'd you do for love...?" class="form-control" />
+          <div [formGroup]="inputForm" class="col-8 col-md-9 col-lg-5">
+            <input #txbContent required maxlength="250" (keyup.enter)="submitForm(txbContent.value);" type="text"
+              placeholder="What'd you do for love...?" class="form-control"
+              [class.is-invalid]="inputForm.controls['content'].hasError('required') && inputForm.controls['content'].dirty"
+              formControlName="content" />
+
+            <div class="invalid-feedback"
+              *ngIf="inputForm.controls['content'].hasError('required') && (inputForm.controls['content'].dirty || inputForm.controls['content'].touched)">
+              Input field is required.
+            </div>
           </div>
 
           <div class="col-1 offset-1 pl-2">
-            <button (click)="addTodo(txbContent.value); txbContent.value = ''" class="btn btn-info">
+            <button (click)="submitForm(txbContent.value);" class="btn btn-info">
               <i class="fa fa-arrow-up"></i>
             </button>
           </div>
-
         </div>
         <!--Todo list-->
         <div class="todos col-10 col-md-10 offset-1">

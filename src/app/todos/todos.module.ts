@@ -6,7 +6,7 @@ import { TodoService } from './shared/todo.service';
 import { CommonModule } from '@angular/common';
 import { NgbdDropdownSplitModule } from './dropdown-split/dropdown-split.module';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
     TodosComponent,
     TodoGreetingComponent,
   ],
-  imports: [FormsModule, CommonModule, NgbdDropdownSplitModule, HttpClientModule],
+  imports: [CommonModule, NgbdDropdownSplitModule, HttpClientModule, ReactiveFormsModule],
   providers: [TodoService],
   exports: [TodosComponent],
 })

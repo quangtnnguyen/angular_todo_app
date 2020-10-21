@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Todo } from './shared/todo.model';
 import { TodoService } from './shared/todo.service';
 
@@ -8,9 +9,14 @@ import { TodoService } from './shared/todo.service';
   styleUrls: ['./todos.component.scss'],
 })
 export class TodosComponent implements OnInit {
+  inputForm: FormGroup;
   todos: Todo[];
 
-  constructor(private todoService: TodoService) { }
+  constructor(private todoService: TodoService, fb: FormBuilder) {
+    this.inputForm = fb.group({
+      content: [null, Validators.required],
+    });
+  }
 
   ngOnInit(): void {
     this.getTodos();
@@ -20,11 +26,12 @@ export class TodosComponent implements OnInit {
     this.todoService.getTodos().subscribe((todos => this.todos = todos));
   }
 
-  addTodo(content: string): void {
-    content = content.trim();
-    if (content.length > 250) {
-      return;
+  submitForm(content: string): void {
+    this.inputForm.markAsTouched();
+    if (this.inputForm.valid) {
+      content = this.inputForm.getRawValue().content.trim();
+      this.todoService.addTodo({ content, status: 'To do' } as Todo).subscribe(todo => this.todos.push(todo));
+      this.inputForm.reset();
     }
-    this.todoService.addTodo({ content, status: 'To do' } as Todo).subscribe(todo => this.todos.push(todo));
   }
 }
