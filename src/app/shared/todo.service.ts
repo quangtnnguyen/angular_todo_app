@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 
 import { Todo } from './todo.model';
 @Injectable({
@@ -11,6 +11,8 @@ import { Todo } from './todo.model';
 export class TodoService {
 
   private apiUrl = 'https://5f8c3d7bc7aadb001605e139.mockapi.io/api/v1/todos/';  // URL to Web API
+  private todos: Todo[] = new Array<Todo>();
+  todos$ = new BehaviorSubject<Todo[]>(this.todos);
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -35,9 +37,13 @@ export class TodoService {
 
   updateTodo(todo: Todo): Observable<any> {
     return this.http.put(this.apiUrl + todo.id, todo, this.httpOptions).pipe(
-      tap(_ => console.log(`Updated todo id=${todo.id}`)),
+      tap(_ => this.log(`Updated todo id=${todo.id} new status=${todo.status}`)),
       catchError(this.handleError<any>('updateTodo'))
     );
+  }
+
+  setTodos(todos: Todo[]): void {
+    this.todos$.next(todos);
   }
 
   private handleError<T>(operation = 'operation', result?: T): any {
